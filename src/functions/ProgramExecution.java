@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import functions.Associative.*;
 import functions.Direct.DirectExecution;
+import functions.setAssociative.*;
 
 public class ProgramExecution {
 
@@ -14,11 +15,11 @@ public class ProgramExecution {
     	
     	switch (method) {
 	    	case 1:
-	   		DirectExecution direct = new DirectExecution();
+	    		DirectExecution direct = new DirectExecution();
 	        	direct.readingDataDirect();
 	        	break;
 	    	case 2:
-	   		System.out.println("Choose one of the algorithms: [1] LFU / [2] LRU / [3] FIFO / [4] Random");
+	    		System.out.println("Choose one of the algorithms: [1] LFU / [2] LRU / [3] FIFO / [4] Random");
 	    		int algorithm = question.nextInt();
 	    		question.close();
 	    		switch (algorithm) {
@@ -41,8 +42,28 @@ public class ProgramExecution {
 	    		}
 	    		break;
 	    	case 3:
-	    		System.out.println("Set associative method currently unavailable");
-	    		break;
+	    		System.out.println("Choose one of the algorithms: [1] LFU / [2] LRU / [3] FIFO / [4] Random");
+	    		int algorithmSA = question.nextInt();
+	    		question.close();
+	    		switch (algorithmSA) {
+    			case 1:
+    				LfuSA lfu = new LfuSA();
+    	    		lfu.runLfuSA();
+    	    		break;
+    			case 2:
+    				LruSA lru = new LruSA();
+    				lru.runLruSA();
+    				break;
+    			case 3:
+    				FifoSA fifo = new FifoSA();
+    				fifo.runFifoSA();
+    				break;
+    			case 4:
+    				RandomSA random = new RandomSA();
+    				random.runRandomSA();
+    				break;
+    		}
+    		break;
     	}   	
     }
 

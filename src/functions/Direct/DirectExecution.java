@@ -18,7 +18,8 @@ public class DirectExecution {
 	private Integer errors = 0;
 
 	public void readingDataDirect() {
-		ArrayList<String> dadosConfig = FileManager.stringReader(MemoryCacheSimulator.getConfigFile());
+//		ArrayList<String> dadosConfig = FileManager.stringReader(MemoryCacheSimulator.getConfigFile());
+		ArrayList<String> dadosConfig  = FileManager.stringReader("./src/data/config.txt");
 		String[] mem = dadosConfig.get(0).split("[ #@_\\/.*;]");
 		String[] word = dadosConfig.get(1).split("[ #@_\\/.*;]");
 		String[] cache = dadosConfig.get(2).split("[ #@_\\/.*;]");
@@ -95,19 +96,20 @@ public class DirectExecution {
 	}
 	
 	public void readMemoryFile() {
-		ArrayList<String> mainMemoryData = FileManager.stringReader(MemoryCacheSimulator.getFile());
+//		ArrayList<String> mainMemoryData = FileManager.stringReader(MemoryCacheSimulator.getFile());
+		ArrayList<String> mainMemoryData  = FileManager.stringReader("./src/data/teste_1.txt");
 		for(String mainMemory : mainMemoryData) {
 			directMethod(getPart(Long.parseLong(mainMemory)));
 		}
-		 JOptionPane.showMessageDialog(null, "<html>Hits: " + getHits() 
-		 									+ "<br>Miss: " + getErrors() + "<br>Percentage of hits: " 
-		 									+ (Double.valueOf(getHits() / Double.valueOf(mainMemoryData.size())) * 100) 
-		 									+ "%" + "</html>",
-		 									"Resultado do Método Direto",
-		 									JOptionPane.INFORMATION_MESSAGE);
-		//System.out.println("Hits: " + getHits());
-		//System.out.println("Errors: " + getErrors());
-		//System.out.println("Percentage of hits: " + (Double.valueOf(getHits() / Double.valueOf(mainMemoryData.size())) * 100) + "%");
+//		 JOptionPane.showMessageDialog(null, "<html>Hits: " + getHits() 
+//		 									+ "<br>Miss: " + getErrors() + "<br>Percentage of hits: " 
+//		 									+ (Double.valueOf(getHits() / Double.valueOf(mainMemoryData.size())) * 100) 
+//		 									+ "%" + "</html>",
+//		 									"Resultado do Método Direto",
+//		 									JOptionPane.INFORMATION_MESSAGE);
+		System.out.println("Hits: " + getHits());
+		System.out.println("Errors: " + getErrors());
+		System.out.println("Percentage of hits: " + (Double.valueOf(getHits() / Double.valueOf(mainMemoryData.size())) * 100) + "%");
 	}
 	
 	public String[] getPart(Long number) {
